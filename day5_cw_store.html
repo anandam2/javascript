@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="onlinestore()">Click</button>
+    <script>
+        function onlinestore(){
+            let order={
+                itemName : "Headphone",
+                isDelivered : true,
+                daysSinceDelivery : 7,
+            }
+            var delivery = (order.isDelivered && order.daysSinceDelivery <=7)?
+            "Eligible for Return" : "Return Period Expired";
+            console.log(delivery);
+            console.log("itemName exists:", "itemName" in order);
+            delete order.daysSinceDelivery;
+            console.log(order);
+        }
+    </script>
+</body>
+</html>
