@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="adminfeature()">Click</button>
+    <script>
+        function adminfeature(){
+            let store = {
+            name : "Ella",
+            age : 21,
+            admin : true,
+            };
+        var user = "age" in store ;
+        console.log("age property exist:",user)
+        var cont = (store.age>=18)? "Access Granted":"Access Denied";
+        console.log(cont);
+        delete store.age
+        console.log(store);
+        }
+    </script>
+</body>
+</html>
