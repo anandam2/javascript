@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Listing</title>
+</head>
+<body>
+    <h3>All Products</h3>
+    <p id="demo1"></p>
+    <h3>Products with Price > 50</h3>
+    <p id="demo2"></p>
+    <h3>Updated Product List</h3>
+    <p id="demo3"></p>
+    <script>
+        var i, fLen, text1, text2, text3;
+        var product = ["Sugar", "Spinach", "Rice", "Onion", "Juice"];
+        var price = [50, 30, 120, 45, 60];
+        var grocery = [];
+        fLen = product.length;
+        for (i = 0; i < fLen; i++) {
+            grocery = grocery.concat("Product: " + product[i] + " - Price: " + price[i]);
+        }
+        text1 = "<ul>";
+        for (i = 0; i < grocery.length; i++) {
+            text1 += "<li>" + grocery[i] + "</li>";
+        }
+        text1 += "</ul>";
+        document.getElementById("demo1").innerHTML = text1;
+        text2 = "<ul>";
+        for (i = 0; i < fLen; i++) {
+            if (price[i] > 50) {
+                text2 = text2.concat("<li>Product: " + product[i] + " - Price: " + price[i] + "</li>");
+            }
+        }
+        text2 += "</ul>";
+        document.getElementById("demo2").innerHTML = text2;
+        product.push("Watermelon");
+        price.push(80);
+        text3 = "<ul>";
+        for (i = 0; i < product.length; i++) {
+            text3 = text3.concat("<li>Product: " + product[i] + " - Price: " + price[i] + "</li>");
+        }
+        text3 += "</ul>";
+        document.getElementById("demo3").innerHTML = text3;
+    </script>
+</body>
+</html>
