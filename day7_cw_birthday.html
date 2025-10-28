@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var friend = { 
+        name: "Vishnu",
+        dob: "2006-09-11"
+    };
+    function getBirthdayDetails(friend) {
+        var birth = new Date(friend.dob);
+        var date = new Date();
+        var year = birth.getFullYear();
+        var monthName = birth.toLocaleString('default', { month: 'long' });
+        var month = birth.getDate();
+        var birthdayThisYear = new Date(date.getFullYear(), birth.getMonth(), month);
+        var age = date.getFullYear() - year - (date < birthdayThisYear ? 1 : 0);
+        console.log(friend.name + " was born on " + month + " " + monthName + ", " + year + " and is " + age + " years old.");
+    }
+    getBirthdayDetails(friend);
+</script>
+</body>
+</html>
