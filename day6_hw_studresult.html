@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var students = [
+            { name: "Eva", score: 65 },
+            { name: "Email", score: 92 },
+            { name: "Santa", score: 67 },
+            { name: "Maya", score: 51 },
+            { name: "Veena", score: 33 }
+        ];
+        var allNames = students.map(function(student) {
+            return student.name;
+        });
+        console.log("All student names:", allNames);
+        var passedStudents = students
+            .filter(function(student) {
+                return student.score > 60;
+            })
+            .map(function(student) {
+                return student.name;
+            });
+        console.log("Students scoring > 60:", passedStudents);
+        var totalScore = students.reduce(function(sum, student) {
+            return sum + student.score;
+        }, 0);
+        console.log("Total score:", totalScore);
+        var allPassed = students.every(function(student) {
+            return student.score > 35;
+        });
+        console.log("Did all students pass?", allPassed);
+        var hasTopScorer = students.some(function(student) {
+            return student.score > 90;
+        });
+        console.log("Any student scored > 90?", hasTopScorer);
+        var sortedStudents = students.slice().sort(function(a, b) {
+            return b.score - a.score;
+        });
+        console.log("Students sorted by score:");
+        sortedStudents.forEach(function(student) {
+            console.log(student.name + ": " + student.score);
+        });
+    </script>
+</body>
+</html>
