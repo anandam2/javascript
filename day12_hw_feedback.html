@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+    #confirmation {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    #displayFeedback {
+      margin-top: 20px;
+      color: black;
+      transition: color 0.3s ease;
+    }
+  </style>
+</head>
+<body class="container mt-5">
+  <h2 class="mb-4">Submit Your Feedback</h2>
+  <form id="feedbackForm">
+    <input type="text" id="userName" placeholder="Your Name" class="form-control" required><br>
+    <textarea id="userFeedback" class="form-control" placeholder="Your Feedback" required></textarea><br>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+  <div id="confirmation"></div>
+  <div id="displayFeedback"></div>
+
+  <script>
+    const form = document.getElementById('feedbackForm');
+    const nameInput = document.getElementById('userName');
+    const feedbackInput = document.getElementById('userFeedback');
+    const confirmation = document.getElementById('confirmation');
+    const display = document.getElementById('displayFeedback');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = nameInput.value.trim();
+      const feedback = feedbackInput.value.trim();
+
+      if (name && feedback) {
+        display.innerHTML = `<strong>${name}</strong>: ${feedback}`;
+        confirmation.textContent = "Thanks for your Feedback!";
+        setTimeout(() => {
+          confirmation.textContent = "";
+        }, 5000);
+        form.reset();
+      }
+    });
+
+    display.addEventListener('mouseover', function() {
+      display.style.color = 'blue';
+    });
+
+    display.addEventListener('mouseout', function() {
+      display.style.color = 'black';
+    });
+  </script>
+</body>
+</html>
